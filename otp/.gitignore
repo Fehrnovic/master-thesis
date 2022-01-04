@@ -1,3 +1,7 @@
+# User defined
+/output
+.DS_Store
+
 # Match at any level.
 
 # emacs
