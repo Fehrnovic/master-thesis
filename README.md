@@ -1,3 +1,9 @@
+# Erlang articles
+## Erlang overview 
+https://www.erlang.org/doc/design_principles/des_princ.html
+## gen_statem Behaviour
+https://www.erlang.org/doc/design_principles/statem.html
+
 # Motorola Discrepancies:
 https://github.com/MaartenFaddegon/ex_discrepancies
 
