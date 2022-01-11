@@ -17,6 +17,9 @@ https://www.it.uu.se/research/group/hipe/papers/succ_types.pdf
 http://www.softlab.ntua.gr/Seminar/2006/presentations/sagonas.pdf
 
 # Concuerror
-
 ## Systematic Testing for Detecting Concurrency Errors in Erlang Programs
 https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ijCSV_wAAAAJ&cstart=20&pagesize=80&sortby=pubdate&alert_preview_top_rm=2&citation_for_view=ijCSV_wAAAAJ:dfsIfKJdRG4C
+
+# Static Concurrency Errors
+## Detection of Asynchronous Message Passing Errors Using Static Analysis
+https://link.springer.com/chapter/10.1007/978-3-642-18378-2_3
