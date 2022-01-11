@@ -23,3 +23,4 @@ https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ijCSV_wAAA
 # Static Concurrency Errors
 ## Detection of Asynchronous Message Passing Errors Using Static Analysis
 https://link.springer.com/chapter/10.1007/978-3-642-18378-2_3
+https://mariachris.github.io/Pubs/PADL-2011.pdf
