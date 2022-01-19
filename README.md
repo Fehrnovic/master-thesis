@@ -35,6 +35,9 @@ https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ijCSV_wAAA
 https://link.springer.com/chapter/10.1007/978-3-642-18378-2_3
 https://mariachris.github.io/Pubs/PADL-2011.pdf
 
+# Lots of great articles on dialyzer
+http://www.it.uu.se/research/group/hipe/dialyzer
+
 
 # Maybe articles - citings found by Google Scholar
 https://dl.acm.org/doi/pdf/10.1145/3331542.3342571
