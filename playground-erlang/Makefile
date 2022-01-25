@@ -1,23 +1,29 @@
 clean:
-	rm -r ./ebin
+	rm -rf ./ebin
 
 setup:
 	mkdir -p ./ebin && mkdir -p ./plt
 
-compile: clean setup
+compile:
+	$(MAKE) clean
+	$(MAKE) setup
 	erl -make
 
-dialyzer: compile
+dialyzer:
 	dialyzer --plt ./plt/default.plt -r ./ebin --dump_callgraph ./callgraph.dot
 
-build-plt: setup
+build-plt:
+	$(MAKE) setup
 	dialyzer --build_plt --apps erts kernel stdlib mnesia crypto compiler --output_plt ./plt/default.plt
 
-symlink-dialyzer-src: setup
-	rm ./src/dialyzer && ln -s "../../../otp/lib/dialyzer/src" ./src/dialyzer
+symlink-dialyzer-src:
+	$(MAKE) setup
+	rm -rf ./src/dialyzer && ln -s "../../../otp/lib/dialyzer/src" ./src/dialyzer
 
 compile-dialyzer:
 	cd ../../otp && $(MAKE) install
 
 recompile: compile compile-dialyzer
+
+initial-configure: build-plt symlink-dialyzer-src recompile
 
