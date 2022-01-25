@@ -14,14 +14,14 @@ dialyzer:
 
 build-plt:
 	$(MAKE) setup
-	dialyzer --build_plt --apps erts kernel stdlib mnesia crypto compiler --output_plt ./plt/default.plt
+	(dialyzer --check_plt --plt ./plt/default.plt) || (dialyzer --build_plt --apps erts kernel stdlib mnesia crypto compiler --output_plt ./plt/default.plt)
 
 symlink-dialyzer-src:
 	$(MAKE) setup
 	rm -rf ./src/dialyzer && ln -s "../../../otp/lib/dialyzer/src" ./src/dialyzer
 
 compile-dialyzer:
-	cd ../../otp && $(MAKE) install.dirs && $(MAKE) install.libs && $(MAKE) install.Install && $(MAKE) install.bin
+	cd ../../otp && $(MAKE) install.dirs && $(MAKE) install.libs ONLY_DIALYZER=true  && $(MAKE) install.Install && $(MAKE) install.bin
 
 recompile: compile compile-dialyzer
 
