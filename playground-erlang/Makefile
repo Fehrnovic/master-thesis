@@ -21,7 +21,7 @@ symlink-dialyzer-src:
 	rm -rf ./src/dialyzer && ln -s "../../../otp/lib/dialyzer/src" ./src/dialyzer
 
 compile-dialyzer:
-	cd ../../otp && $(MAKE) install
+	cd ../../otp && $(MAKE) install.dirs && $(MAKE) install.libs && $(MAKE) install.Install && $(MAKE) install.bin
 
 recompile: compile compile-dialyzer
 
