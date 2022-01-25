@@ -1,3 +1,4 @@
 ebin
 plt
 callgraph.dot
+src/dialyzer
