@@ -7,14 +7,14 @@ setup:
 compile:
 	$(MAKE) clean
 	$(MAKE) setup
-	erl -make
+	erlc +debug_info -o ./ebin ./src/*.erl
 
 dialyzer:
-	dialyzer --plt ./plt/default.plt -r ./ebin --dump_callgraph ./callgraph.dot
+	dialyzer --plt ./plt/default.plt -r ./ebin
 
 build-plt:
 	$(MAKE) setup
-	(dialyzer --check_plt --plt ./plt/default.plt) || (dialyzer --build_plt --apps erts kernel dialyzer stdlib mnesia crypto compiler --output_plt ./plt/default.plt)
+	(dialyzer --check_plt --plt ./plt/default.plt) || (dialyzer --build_plt --apps erts kernel stdlib mnesia crypto compiler --output_plt ./plt/default.plt)
 
 symlink-dialyzer-src:
 	$(MAKE) setup
@@ -23,10 +23,10 @@ symlink-dialyzer-src:
 compile-dialyzer:
 	cd ../../otp && $(MAKE) install.dirs && $(MAKE) install.libs ONLY_DIALYZER=true  && $(MAKE) install.Install && $(MAKE) install.bin
 
+# Might not be needed?
 run-erlang-port-mapper-deamon:
 	erl -sname foo -s init stop -noshell
 
-recompile: run-erlang-port-mapper-deamon compile compile-dialyzer
+recompile: compile-dialyzer compile
 
 initial-configure: build-plt symlink-dialyzer-src recompile
-
