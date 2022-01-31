@@ -10,7 +10,7 @@
         </option>
       </ErlangDebugOptions>
     </option>
-    <option name="erlFlags" value="" />
+    <option name="erlFlags" value="-pa ./ebin" />
     <option name="moduleAndFunction" value="runner runner" />
     <option name="params" value="" />
     <option name="projectPathOnTarget" />
