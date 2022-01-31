@@ -1,4 +1,5 @@
 .DS_Store
+erl_crash.dump
 
 # Created by https://www.toptal.com/developers/gitignore/api/jetbrains,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=jetbrains,intellij
