@@ -9,7 +9,7 @@ start_link() ->
     {ok, Pid} = gen_server:start_link({local, discrepancy2}, discrepancy2, [ok], []),
     Pid.
 
--spec my_api(pid(), integer()) -> string().
+-spec my_api(pid(), integer()) -> unicode:chardata().
 my_api(Pid, Arg) ->
     gen_server:call(Pid, {my_api, Arg}).
 

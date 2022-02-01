@@ -9,7 +9,7 @@ start_link() ->
     {ok, Pid} = gen_server:start_link({local, discrepancy1}, discrepancy1, [ok], []),
     Pid.
 
--spec my_api(pid(), integer()) -> string().
+-spec my_api(pid(), integer()) -> unicode:chardata().
 my_api(Pid, Arg) ->
     gen_server:call(Pid, {my_api, Arg}).
 
@@ -25,6 +25,6 @@ handle_call({my_api, Arg}, _From, State) ->
 handle_cast(_Msg, State) ->
     {noreply, State}.
 
--spec uppercase(string()) -> string().
+-spec uppercase(Arg :: unicode:chardata()) -> unicode:chardata().
 uppercase(Arg) ->
     string:uppercase(Arg).
