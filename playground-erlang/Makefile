@@ -3,10 +3,12 @@ clean:
 
 setup:
 	mkdir -p ./ebin/discrepancies
+	mkdir -p ./ebin/examples
 	mkdir -p ./plt
 
 compile:
 	erlc +debug_info -o ./ebin/discrepancies ./src/discrepancies/*.erl
+	erlc +debug_info -o ./ebin/examples ./src/examples/*.erl
 
 compile-runner:
 	erlc +debug_info -o ./ebin ./src/runner.erl
