@@ -2,12 +2,7 @@
 -export([funcA/0]).
 
 funcA() ->
-  funcB(),
-  funcC().
+  funcB().
 
 funcB() ->
-  funcC(),
   2.
-
-funcC() ->
-  3.

@@ -9,12 +9,13 @@ runner() ->
     DiscrepancyMsg -> io:fwrite(DiscrepancyMsg)
   catch
     ErrorMessage -> io:fwrite(ErrorMessage)
-  end.
+  end,
+  observer:stop().
 
 run_dialyzer() ->
   dialyzer:run([
-    {plts, ["./plt/default.plt"]},
-    {files_rec, ["./ebin/examples/test.beam"]}
+    {plts, ["../plt/default.plt"]},
+    {files_rec, ["../ebin/examples/test.beam"]}
   ]).
 
 

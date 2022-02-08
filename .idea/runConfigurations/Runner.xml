@@ -10,7 +10,7 @@
         </option>
       </ErlangDebugOptions>
     </option>
-    <option name="erlFlags" value="-pa ./ebin -pa ./ebin/discrepancies -pa ./ebin/examples -name runner" />
+    <option name="erlFlags" value="-pa ../ebin -pa ../ebin/discrepancies -pa ../ebin/examples -name runner" />
     <option name="moduleAndFunction" value="runner runner" />
     <option name="params" value="" />
     <option name="projectPathOnTarget" />
@@ -18,7 +18,7 @@
       <list />
     </option>
     <option name="useTestCodePath" value="false" />
-    <option name="workDirectory" value="$PROJECT_DIR$/playground-erlang" />
+    <option name="workDirectory" value="$PROJECT_DIR$/playground-erlang/src" />
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="recompile" run_configuration_type="MAKEFILE_TARGET_RUN_CONFIGURATION" />
     </method>
