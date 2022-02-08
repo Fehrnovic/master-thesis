@@ -11,14 +11,14 @@ start_link() ->
 
 -spec my_api(pid(), integer()) -> unicode:chardata().
 my_api(Pid, Arg) ->
-    gen_server:call(Pid, {my_api, Arg}).
+    gen_server:call(Pid, {my_api_server, Arg}).
 
 % server implementation
 
 init(ok) ->
     {ok, my_state}.
 
-handle_call({my_api, Arg}, _From, State) ->
+handle_call({my_api_server, Arg}, _From, State) ->
     Res = uppercase(Arg),
     {reply, Res, State}.
 
