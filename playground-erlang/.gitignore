@@ -4,3 +4,4 @@ plt
 callgraph.dot
 src/dialyzer
 erl_crash.dump
+*.beam
