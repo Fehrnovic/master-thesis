@@ -1,8 +1,8 @@
 -module(test2).
--export([funcC/0]).
+-export([funcC/0, funcD/0]).
 
 funcC() ->
-  funcD().
+  test3:funcE().
 
 funcD() ->
   2.
