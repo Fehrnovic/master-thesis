@@ -14,8 +14,13 @@ runner() ->
 
 run_dialyzer() ->
   dialyzer:run([
-    {plts, ["../plt/default.plt"]},
-    {files_rec, ["../ebin/examples/test.beam"]}
+    {plts, [
+      "../plt/empty.plt"
+    ]},
+    {files_rec, [
+      "../ebin/examples/test.beam",
+      "../ebin/examples/test2.beam"
+    ]}
   ]).
 
 

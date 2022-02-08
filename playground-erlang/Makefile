@@ -19,6 +19,10 @@ dialyze:
 build-plt:
 	(dialyzer --check_plt --plt ./plt/default.plt) || (dialyzer --build_plt --apps erts kernel stdlib mnesia crypto compiler --output_plt ./plt/default.plt)
 
+build-empty-plt:
+	(dialyzer --check_plt --plt ./plt/empty.plt) || (dialyzer --build_plt --apps compiler --output_plt ./plt/empty.plt)
+	dialyzer --remove_from_plt --plt ./plt/empty.plt --apps compiler
+
 symlink-dialyzer-src:
 	rm -rf ./src/dialyzer
 	ln -s "../../../otp/lib/dialyzer/src" ./src/dialyzer
@@ -32,4 +36,4 @@ run-erlang-port-mapper-deamon:
 
 recompile: clean setup compile-dialyzer compile compile-runner
 
-initial-configure: clean setup build-plt symlink-dialyzer-src compile-dialyzer compile compile-runner
+initial-configure: clean setup build-plt build-empty-plt symlink-dialyzer-src compile-dialyzer compile compile-runner

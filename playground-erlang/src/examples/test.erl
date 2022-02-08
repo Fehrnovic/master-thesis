@@ -5,4 +5,4 @@ funcA() ->
   funcB().
 
 funcB() ->
-  2.
+  test2:funcC().
