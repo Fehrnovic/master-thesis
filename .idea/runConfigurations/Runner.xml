@@ -4,7 +4,7 @@
     <option name="allowRunningInParallel" value="false" />
     <option name="debugOptions">
       <ErlangDebugOptions>
-        <option name="autoUpdateModulesNotToInterpret" value="true" />
+        <option name="autoUpdateModulesNotToInterpret" value="false" />
         <option name="modulesNotToInterpret">
           <set />
         </option>

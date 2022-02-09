@@ -3,17 +3,16 @@
 -import(dialyzer, [run/1]).
 
 runner() ->
-  observer:start(),
   try run_dialyzer() of
     [] -> io:fwrite("No discrepancies found");
-    DiscrepancyMsg -> io:fwrite(DiscrepancyMsg)
+    DiscrepancyMsg -> io:fwrite(dialyzer:format_warning(DiscrepancyMsg))
   catch
-    ErrorMessage -> io:fwrite(ErrorMessage)
-  end,
-  observer:stop().
+    ErrorMessage -> ErrorMessage
+  end.
 
 run_dialyzer() ->
-  dialyzer:run([
+  observer:start(),
+  Output = dialyzer:run([
     {plts, [
       "../plt/empty.plt"
     ]},
@@ -21,6 +20,8 @@ run_dialyzer() ->
       "../ebin/examples/test.beam",
       "../ebin/examples/test2.beam"
     ]}
-  ]).
+  ]),
+  observer:stop(),
+  Output.
 
 
