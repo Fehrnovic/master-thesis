@@ -14,11 +14,10 @@ run_dialyzer() ->
   observer:start(),
   Output = dialyzer:run([
     {plts, [
-      "../plt/empty.plt"
+      "../plt/default.plt"
     ]},
     {files_rec, [
-      "../ebin/examples/test.beam",
-      "../ebin/examples/test2.beam"
+      "../ebin/examples/test4.beam"
     ]}
   ]),
   observer:stop(),

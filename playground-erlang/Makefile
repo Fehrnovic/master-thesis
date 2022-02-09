@@ -15,6 +15,7 @@ compile-runner:
 
 dialyze:
 	dialyzer --plt ./plt/default.plt -r ./ebin/discrepancies
+	dialyzer --plt ./plt/default.plt -r ./ebin/examples
 
 build-plt:
 	(dialyzer --check_plt --plt ./plt/default.plt) || (dialyzer --build_plt --apps erts kernel stdlib mnesia crypto compiler --output_plt ./plt/default.plt)
