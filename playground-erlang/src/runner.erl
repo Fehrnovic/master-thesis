@@ -5,7 +5,12 @@
 runner() ->
   try run_dialyzer() of
     [] -> io:fwrite("No discrepancies found");
-    DiscrepancyMsg -> io:fwrite(dialyzer:format_warning(DiscrepancyMsg))
+    DiscrepancyMessages -> lists:foreach(
+      fun(DiscrepancyMessage) ->
+        io:fwrite(dialyzer:format_warning(DiscrepancyMessage))
+      end,
+      DiscrepancyMessages
+    )
   catch
     ErrorMessage -> ErrorMessage
   end.

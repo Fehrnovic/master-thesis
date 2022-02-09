@@ -6,6 +6,7 @@ beer_func(_Pid, {my_api_server, _Arg}) ->
 
 -spec my_api(pid(),any()) -> boolean().
 my_api(Pid, Arg) ->
+  beer_func(Pid, {my_api_server, Arg}),
   gen_server:call(Pid, {my_api_server, Arg}).
 
 handle_call({my_api_server, _Arg}, _From, State) ->
