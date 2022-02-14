@@ -9,8 +9,9 @@ start_link() ->
     {ok, Pid} = gen_server:start_link({local, discrepancy1}, discrepancy1, [ok], []),
     Pid.
 
--spec my_api(pid(), integer()) -> unicode:chardata().
+-spec my_api(pid(), integer()) -> integer().
 my_api(Pid, Arg) ->
+    handle_call({my_api_server, Arg}, nil, nil),
     gen_server:call(Pid, {my_api_server, Arg}).
 
 % server implementation
