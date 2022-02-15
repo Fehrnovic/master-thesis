@@ -11,7 +11,7 @@ start_link() ->
 
 -spec my_api(pid(), integer()) -> unicode:chardata().
 my_api(Pid, Arg) ->
-    %handle_call({my_api_server, Arg}, nil, my_state),
+    handle_call({my_api_server, Arg}, nil, my_state),
     gen_server:call(Pid, {my_api_server, Arg}).
 
 % server implementation

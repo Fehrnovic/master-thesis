@@ -22,7 +22,8 @@ run_dialyzer() ->
       "../plt/default.plt"
     ]},
     {files_rec, [
-      "../ebin/examples/test4.beam"
+      "../ebin/discrepancies/discrepancy1.beam",
+      "../ebin/discrepancies/discrepancy2.beam"
     ]}
   ]),
   observer:stop(),
