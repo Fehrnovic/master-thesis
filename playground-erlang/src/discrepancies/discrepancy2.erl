@@ -16,7 +16,7 @@ my_api(Pid, Arg) ->
 
 % server implementation
 
-init(ok) ->
+init(_Args) ->
     {ok, my_state}.
 
 -spec handle_call({my_api_server, integer()}, _From, my_state) -> {reply, integer(), my_state}.
