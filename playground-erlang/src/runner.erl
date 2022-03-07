@@ -5,15 +5,28 @@
 runner() ->
   try run_dialyzer() of
     [] -> io:fwrite("No discrepancies found");
-    DiscrepancyMsg -> io:fwrite(DiscrepancyMsg)
+    DiscrepancyMessages -> lists:foreach(
+      fun(DiscrepancyMessage) ->
+        io:fwrite(dialyzer:format_warning(DiscrepancyMessage))
+      end,
+      DiscrepancyMessages
+    )
   catch
-    ErrorMessage -> io:fwrite(ErrorMessage)
+    ErrorMessage -> ErrorMessage
   end.
 
 run_dialyzer() ->
-  dialyzer:run([
-    {plts, ["./plt/default.plt"]},
-    {files_rec, ["./ebin/discrepancies/discrepancy1.beam"]}
-  ]).
+  observer:start(),
+  Output = dialyzer:run([
+    {plts, [
+      "../plt/default.plt"
+    ]},
+    {files_rec, [
+      "../ebin/discrepancies/discrepancy1.beam",
+      "../ebin/discrepancies/discrepancy2.beam"
+    ]}
+  ]),
+  observer:stop(),
+  Output.
 
 
