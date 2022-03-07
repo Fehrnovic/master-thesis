@@ -15,7 +15,7 @@ end
 ```
 sudo apt-get update && sudo apt-get upgrade && sudo apt-get -y install build-essential autoconf m4 libssl-dev libncurses5-dev libwxgtk3.0-gtk3-dev default-jdk unixodbc-dev xsltproc fop libxml2-utils
 ```
-1. Run ```export ERL_TOP=`pwd`/output```
+1. Run ```export ERL_TOP=`pwd````
 1. Run ```./configure --prefix=`pwd`/output```
 1. Run ```make```
 1. Run ```make install```
