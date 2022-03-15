@@ -1,8 +1,14 @@
 -module(test).
--export([funcA/0]).
+-export([funcA/1]).
 
-funcA() ->
-  funcB().
+-spec funcA(any()) -> cheese.
+funcA(A) ->
+  case A of
+    1 -> funcB(A);
+    2 -> funcB(A);
+    _ -> 3
+  end.
 
-funcB() ->
-  test2:funcC().
+-spec funcB(any()) -> cheese.
+funcB(B) ->
+  funcA(B + 1).
