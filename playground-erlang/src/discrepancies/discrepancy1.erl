@@ -11,7 +11,6 @@ start_link() ->
 
 -spec my_api(pid(), integer()) -> integer().
 my_api(Pid, Arg) ->
-    handle_call({my_api_server, Arg}, nil, nil),
     gen_server:call(Pid, {my_api_server, Arg}).
 
 % server implementation
