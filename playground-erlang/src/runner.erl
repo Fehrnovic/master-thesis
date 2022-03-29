@@ -24,7 +24,8 @@ run_dialyzer() ->
     {files_rec, [
       %"../ebin/examples/aaaa.beam"
       "../ebin/discrepancies/discrepancy1.beam",
-      "../ebin/discrepancies/discrepancy2.beam"
+      "../ebin/discrepancies/discrepancy1-test.beam"
+      %"../ebin/discrepancies/discrepancy2.beam"
     ]}
   ]),
   observer:stop(),

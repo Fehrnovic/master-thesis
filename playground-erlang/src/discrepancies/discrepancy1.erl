@@ -1,30 +1,18 @@
 -module(discrepancy1).
--behaviour(gen_server).
--export([start_link/0, my_api/2, init/1, handle_call/3, handle_cast/2]).
+-export([handle_stuff/2, handle_stuff2/1, handle_call/3]).
 
-% client APIs
+handle_stuff(Pid, Command) ->
+  my_api(Pid, Command).
 
--spec start_link() -> pid().
-start_link() ->
-    {ok, Pid} = gen_server:start_link({local, discrepancy1}, discrepancy1, [ok], []),
-    Pid.
+handle_stuff2(Pid) ->
+  my_api(Pid, {my_api_server, 1, 3}).
 
--spec my_api(pid(), integer()) -> integer().
-my_api(Pid, Arg) ->
-    gen_server:call(Pid, {my_api_server, Arg}).
+-spec my_api(pid(), any()) -> 6.
+my_api(Pid, Command) ->
+  gen_server:call(Pid, Command).
 
-% server implementation
-
-init(_Args) ->
-    {ok, my_state}.
-
-handle_call({my_api_server, Arg}, _From, State) ->
-    Res = uppercase(Arg),
-    {reply, Res, State}.
-
-handle_cast(_Msg, State) ->
-    {noreply, State}.
-
--spec uppercase(Arg :: unicode:chardata()) -> unicode:chardata().
-uppercase(Arg) ->
-    string:uppercase(Arg).
+handle_call({my_api_server, _Arg}, _From, _State) ->
+  {reply, 6, _State};
+handle_call({my_api_server, _Arg, _Arg2}, _From, _State) ->
+  _Result = _Arg + _Arg2,
+  {reply, bob, _State}.

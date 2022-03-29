@@ -10,4 +10,26 @@ my_api(Pid, Arg) ->
 % server implementation
 
 handle_call({my_api_server, _Arg}, _From, State) ->
-    {reply, true, State}.
+    {reply, true, State};
+handle_call({my_api_server, _Argh}, _From, State) ->
+    {reply, false, State};
+handle_call(list, _From, State) ->
+    {reply, abebobvonfrank, State};
+handle_call(-1, _From, State) ->
+    {reply, abebobvonfrank, State};
+handle_call({my_api_server, _Arg}, _From, State) ->
+    {reply, true, State};
+handle_call({my_api_server, _Argh}, _From, State) ->
+    {reply, false, State};
+handle_call(list, _From, State) ->
+    {reply, abebobvonfrank, State};
+handle_call(-1, _From, State) ->
+    {reply, abebobvonfrank, State};
+handle_call({my_api_server, _Arg}, _From, State) ->
+    {reply, true, State};
+handle_call({my_api_server, _Argh}, _From, State) ->
+    {reply, false, State};
+handle_call(list, _From, State) ->
+    {reply, abebobvonfrank, State};
+handle_call(-1, _From, State) ->
+    {reply, abebobvonfrank, State}.
