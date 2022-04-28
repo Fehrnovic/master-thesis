@@ -10,7 +10,7 @@
         </option>
       </ErlangDebugOptions>
     </option>
-    <option name="erlFlags" value="-pa ../ebin -pa ../ebin/discrepancies -pa ../ebin/examples -name runner" />
+    <option name="erlFlags" value="-pa ../ebin -pa ../ebin/discrepancies -pa ../ebin/examples -sname runner" />
     <option name="moduleAndFunction" value="runner runner" />
     <option name="params" value="" />
     <option name="projectPathOnTarget" />
